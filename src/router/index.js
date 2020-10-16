@@ -1,23 +1,61 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'tabbar',
+    component: () => import('../views/tabbar.vue'),
+    children:[
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('../views/home.vue')
+      },
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import('../views/order.vue')
+      },
+      {
+        path: 'shopcar',
+        name: 'shopcar',
+        component: () => import('../views/shopcar.vue')
+      },
+      {
+        path: 'mycenter',
+        name: 'mycenter',
+        component: () => import('../views/mycenter.vue')
+      },
+
+    ]
+  },
+  // 登录
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login.vue')
+  },
+  // 全部产品
+  {
+    path: '/category/:id',
+    name: 'category',
+    component: () => import('../views/category.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/productDetails/',
+    name: 'categoryDetails',
+    component: () => import('../views/productDetails.vue')
+  },
+  {
+    path: '/address/',
+    name: 'categoryDetails',
+    component: () => import('../views/address.vue')
   }
+  
 ]
 
 const router = new VueRouter({
