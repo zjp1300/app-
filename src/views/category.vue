@@ -52,8 +52,9 @@
             }
         },
         created(){
-            
+            console.log(this.$route)
             this.activeKey=this.$route.params.id-1
+            
         },
         computed:{
             ...mapState("category",["category","products"])
@@ -63,23 +64,23 @@
                 categoryFindAll:"findAll"
             }),
             ...mapActions("category",["findProByCategoryId"]),
-            onChange(data){
-                
-                this.findProByCategoryId(data+1)
+            onChange(index){
+                this.activeKey=index;
+                console.log(this.activeKey)   
+                this.findProByCategoryId(index+1)
                 
                 
             },
             onClickLeft(){
-                this.$router.go(-1);
-            }
+                this.$router.push('/');
+            },
         },
         directives: {
-            
             trigger: {
                 // 指令的自定义
                 // 对dom元素的绑定事件进行自动执行操作
                 inserted: function (el,binding) {
-                    // console.log(binding.value)
+                    
                      el.id==binding.value?el.click():null
                     
                 }

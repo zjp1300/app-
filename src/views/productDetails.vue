@@ -35,7 +35,6 @@
             <van-goods-action-button
             @click="toAddShopCar"
              color="#be99ff" type="warning" text="加入购物车" />
-            <van-goods-action-button color="#7232dd" type="danger" text="立即购买" />
         </van-goods-action>
 
         
@@ -66,25 +65,11 @@
      
             },
         methods:{
-            ...mapActions("category",{
-                categoryFindAll:"findAll",
-                
-
-            }),
-            ...mapActions("category",["findProByCategoryId"]),
-            ...mapActions("order",["orderSave"]),
             
-            onChange(data){
-                
-                this.findProByCategoryId(data+1)
-                
-                
-            },
-            toOpenDialog(){
-                this.show=true
-            },
+            ...mapActions("order",["orderSave"]),
             onClickLeft(){
-                this.$router.go(-1);
+                this.$router.push({ name: 'category', params: { id:this.curPro.categoryId}});
+                // this.$router.go(-1)
             },
             toAdd(){
                 ++this.curPro.num
@@ -113,7 +98,8 @@
                     });
                 })
                
-            }
+            },
+        
 
         },
         directives: {

@@ -93,12 +93,12 @@
             onSubmit(){
                 var payOrderArr=this.order.filter((item)=>{
                     if(this.ordId.includes(item.id)) return 1;
-                })
+                });
                 for(var ele of payOrderArr){
                     this.toPay(ele,ele.orderLines[0].product)
-                    console.log(this.result,this.ordId)
                     this.allTotal=0;
                 }
+                
                 this.$toast({
                     message:"订单支付成功",
                     type:"success"
