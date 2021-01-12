@@ -34,8 +34,8 @@ import categoryVue from './category.vue';
       data(){
         return {
           active:0,
-          images:["http://39.105.151.217/categoryImages/lunbo-02.png",
-                  "http://39.105.151.217/categoryImages/lunbo-01.png"  
+          images:["http://39.106.42.14/gesheimg/lunbo01.jpg",
+                  "http://39.106.42.14/gesheimg/lunbo02.jpg"  
           ]
           
         }

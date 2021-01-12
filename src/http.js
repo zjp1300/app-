@@ -3,7 +3,7 @@ import qs from 'qs'
 import {getToken} from './auth'
 // 全局配置
 axios.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded'
-axios.defaults.baseURL='http://39.105.151.217:5588'
+axios.defaults.baseURL='http://39.106.42.14:5588'
 axios.defaults.headers.common["Authorization"]=getToken()
 
 export function post(url,data){
